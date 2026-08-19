@@ -1,0 +1,147 @@
+/* ===========================================================
+   Perfumeria del KI — Hoja de estilos
+   Paleta: negro profundo + rojo sangre, con difuminado tipo
+   "niebla de perfume" en iconos e imagenes destacadas.
+=========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --negro-abismo: #0a0708;
+    --negro-carbon: #161113;
+    --negro-carbon-2: #1f1719;
+    --rojo-sangre: #8a0303;
+    --rojo-brillante: #d4143a;
+    --rojo-glow: #ff2a4f;
+    --blanco-humo: #f2ece9;
+    --gris-ceniza: #a89a98;
+    --borde-sutil: rgba(212, 20, 58, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--negro-abismo);
+    background-image:
+        radial-gradient(circle at 15% 20%, rgba(138, 3, 3, 0.18), transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(212, 20, 58, 0.12), transparent 45%);
+    background-attachment: fixed;
+    color: var(--blanco-humo);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+}
+
+/* ---------- Tipografia ---------- */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    color: var(--blanco-humo);
+    text-shadow: 0 0 25px rgba(212, 20, 58, 0.35);
+}
+
+h2 {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--rojo-brillante);
+}
+
+p {
+    color: var(--gris-ceniza);
+    max-width: 85ch;
+}
+
+a {
+    color: var(--rojo-brillante);
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover, a:focus-visible {
+    color: var(--rojo-glow);
+    text-shadow: 0 0 12px rgba(255, 42, 79, 0.6);
+}
+
+/* ---------- Layout general ---------- */
+.contenedor {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+
+.divisor {
+    width: 80px;
+    height: 2px;
+    margin: 1.5rem auto;
+    background: linear-gradient(90deg, transparent, var(--rojo-brillante), transparent);
+    box-shadow: 0 0 8px var(--rojo-glow);
+}
+
+
+
+/* ---------- Boton "Volver al inicio" ---------- */
+.btn-volver {
+    display: inline-block;
+    margin-top: 2.5rem;
+    padding: 0.8rem 2rem;
+    border: 1px solid var(--rojo-brillante);
+    border-radius: 30px;
+    color: var(--blanco-humo);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: all 0.35s ease;
+}
+
+.btn-volver:hover {
+    background: var(--rojo-sangre);
+    box-shadow: 0 0 20px rgba(255, 42, 79, 0.5);
+    color: var(--blanco-humo);
+}
+
+/* ---------- Footer ---------- */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--gris-ceniza);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    border-top: 1px solid var(--borde-sutil);
+}
+
+/* ---------- Accesibilidad ---------- */
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--rojo-glow);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .halo-perfume::before {
+        animation: none;
+    }
+}
+
+.imagen-izquierda {
+    float: left;
+    margin: 0 2rem 1rem 0; /* separa la imagen del texto: arriba derecha abajo izquierda */
+}
+
+/* Esto evita que el footer o el boton "suban" y se encimen con la imagen */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
